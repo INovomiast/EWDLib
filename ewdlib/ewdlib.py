@@ -11,13 +11,15 @@ def new(foldername):
         raise ValueError(foldername + ' Is an existing DIR')
 
 
-def create(filename, page_title, ):
-    if not path.exists( foldername + '/index.html'):
-        html = os.open(filename, os.O_RDWR | os.O_CREAT, path=)
-        os.write(html, '<html>\n')
-        os.write(html, '<head>\n')
-        os.write(html, '<title>' + page_title + '</title>')
-        os.write(html, '</head>')
-        os.write(html, '</html>')
+def create(filename, page_title):
+    if not path.exists('/index.html'):
+        file = os.open(filename + '.html', 'w')
+        os.write(file, "<!DOCTYPE html>\n")
+        os.write(file, "<html>\n")
+        os.write(file, '<head>\n')
+        os.write(file, '<title>' + page_title + '</title>')
+        os.write(file, '</head>')
+        os.write(file, "</html>\n")
     else:
         raise Error(filename + 'is existing!')
+    
